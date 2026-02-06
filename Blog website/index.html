@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoBlog | Modern Blog Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>">
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <div class="logo">
+                <h1><span class="logo-gradient">Neo</span>Blog</h1>
+                <div class="logo-subtitle">Modern Blogging Experience</div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#posts" class="nav-link">Posts</a></li>
+                <li><a href="#categories" class="nav-link">Categories</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search articles...">
+                <button id="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="mobile-menu-btn" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <h2 class="hero-title animate-float">Welcome to <span class="highlight animate-gradient">Modern Blogging</span></h2>
+            <p class="hero-subtitle animate-slide-up">Where technology meets creativity in web development</p>
+            <div class="hero-stats">
+                <div class="stat animate-slide-up" style="animation-delay: 0.1s">
+                    <span class="stat-number" id="post-count">0</span>
+                    <span class="stat-label">Articles</span>
+                </div>
+                <div class="stat animate-slide-up" style="animation-delay: 0.2s">
+                    <span class="stat-number" id="comment-count">0</span>
+                    <span class="stat-label">Comments</span>
+                </div>
+                <div class="stat animate-slide-up" style="animation-delay: 0.3s">
+                    <span class="stat-number" id="like-count">0</span>
+                    <span class="stat-label">Likes</span>
+                </div>
+                <div class="stat animate-slide-up" style="animation-delay: 0.4s">
+                    <span class="stat-number" id="author-count">0</span>
+                    <span class="stat-label">Authors</span>
+                </div>
+            </div>
+            <button class="btn-primary explore-btn animate-pulse">
+                <i class="fas fa-rocket"></i> Explore Articles
+            </button>
+        </div>
+        <div class="hero-scroll animate-bounce">
+            <span>Scroll to explore</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Blog Posts Section -->
+        <section class="blog-section" id="posts">
+            <h2 class="section-title animate-fade-in">Featured Articles</h2>
+            <p class="section-subtitle animate-fade-in">Discover insightful content on web development and design</p>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-layer-group"></i> All Posts
+                </button>
+                <button class="filter-btn" data-filter="web-dev">
+                    <i class="fas fa-code"></i> Web Dev
+                </button>
+                <button class="filter-btn" data-filter="ui-ux">
+                    <i class="fas fa-palette"></i> UI/UX
+                </button>
+                <button class="filter-btn" data-filter="tutorial">
+                    <i class="fas fa-graduation-cap"></i> Tutorials
+                </button>
+                <button class="filter-btn" data-filter="trends">
+                    <i class="fas fa-chart-line"></i> Trends
+                </button>
+            </div>
+            
+            <div class="blog-grid" id="blog-container">
+                <!-- Blog posts will be dynamically loaded here -->
+                <div class="loading">
+                    <div class="loading-dots">
+                        <div class="loading-dot"></div>
+                        <div class="loading-dot"></div>
+                        <div class="loading-dot"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="load-more-container">
+                <button class="btn-secondary load-more-btn" id="load-more">
+                    <i class="fas fa-sync-alt"></i> Load More Articles
+                </button>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section glass animate-slide-up" id="about">
+            <div class="about-content">
+                <h2 class="section-title">About This Project</h2>
+                <p>This advanced blog website demonstrates modern frontend development techniques with smooth animations and interactive features.</p>
+                <ul class="features-list">
+                    <li class="animate-list-item" style="animation-delay: 0.1s">
+                        <i class="fas fa-check-circle"></i> Glassmorphism design with dark/light mode toggle
+                    </li>
+                    <li class="animate-list-item" style="animation-delay: 0.2s">
+                        <i class="fas fa-check-circle"></i> Dynamic content loading with smooth animations
+                    </li>
+                    <li class="animate-list-item" style="animation-delay: 0.3s">
+                        <i class="fas fa-check-circle"></i> Interactive comment system with reply feature
+                    </li>
+                    <li class="animate-list-item" style="animation-delay: 0.4s">
+                        <i class="fas fa-check-circle"></i> Advanced CSS animations and transitions
+                    </li>
+                    <li class="animate-list-item" style="animation-delay: 0.5s">
+                        <i class="fas fa-check-circle"></i> Fully responsive design for all devices
+                    </li>
+                    <li class="animate-list-item" style="animation-delay: 0.6s">
+                        <i class="fas fa-check-circle"></i> Search, filter, and like functionality
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories-section" id="categories">
+            <h2 class="section-title animate-fade-in">Popular Categories</h2>
+            <div class="categories-grid">
+                <div class="category-card animate-scale-in" style="animation-delay: 0.1s">
+                    <div class="category-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Latest trends and techniques in modern web development</p>
+                    <span class="category-count">12 Articles</span>
+                </div>
+                <div class="category-card animate-scale-in" style="animation-delay: 0.2s">
+                    <div class="category-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Design principles and user experience best practices</p>
+                    <span class="category-count">8 Articles</span>
+                </div>
+                <div class="category-card animate-scale-in" style="animation-delay: 0.3s">
+                    <div class="category-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Tutorials</h3>
+                    <p>Step-by-step guides and learning resources</p>
+                    <span class="category-count">15 Articles</span>
+                </div>
+                <div class="category-card animate-scale-in" style="animation-delay: 0.4s">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Trends</h3>
+                    <p>Industry trends and future predictions</p>
+                    <span class="category-count">6 Articles</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><span class="logo-gradient">Neo</span>Blog</h3>
+                <p>A modern blog website showcasing frontend development skills with advanced features and animations.</p>
+                <div class="newsletter">
+                    <h4>Subscribe to Newsletter</h4>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button class="btn-primary">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Technologies Used</h3>
+                <div class="tech-tags">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">JavaScript ES6+</span>
+                    <span class="tech-tag">CSS Grid & Flexbox</span>
+                    <span class="tech-tag">LocalStorage API</span>
+                    <span class="tech-tag">CSS Animations</span>
+                </div>
+                <h3 style="margin-top: 2rem">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#posts"><i class="fas fa-chevron-right"></i> All Posts</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link animate-hover" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-link animate-hover" title="CodePen">
+                        <i class="fab fa-codepen"></i>
+                    </a>
+                    <a href="#" class="social-link animate-hover" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-link animate-hover" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link animate-hover" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+                <div class="contact-info">
+                    <h3 style="margin-top: 2rem">Contact Info</h3>
+                    <p><i class="fas fa-envelope"></i> hello@neoblog.dev</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Virtual Project</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 NeoBlog. Created as an advanced student project. All images from Unsplash.</p>
+            <p class="footer-credits">Made with <i class="fas fa-heart" style="color: #f72585;"></i> by Student Developer</p>
+        </div>
+    </footer>
+
+    <!-- Comment Modal -->
+    <div class="modal-overlay" id="comment-modal">
+        <div class="modal-content glass">
+            <div class="modal-header">
+                <h3><i class="fas fa-comments"></i> Comments</h3>
+                <button class="close-modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="comments-container" id="comments-list">
+                    <!-- Comments will be loaded here -->
+                </div>
+                <form id="comment-form" class="animate-slide-up">
+                    <h4><i class="fas fa-edit"></i> Add a Comment</h4>
+                    <div class="form-group">
+                        <input type="text" id="comment-name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="comment-text" placeholder="Share your thoughts..." rows="4" required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i> Post Comment
+                        </button>
+                        <button type="button" class="btn-secondary close-comment-form">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Reading Modal -->
+    <div class="modal-overlay" id="blog-modal">
+        <div class="modal-content glass blog-modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-book-open"></i> Reading Article</h3>
+                <button class="close-modal close-blog-modal" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body blog-modal-body">
+                <div id="blog-modal-content">
+                    <!-- Full blog content will be loaded here -->
+                </div>
+                <div class="blog-actions">
+                    <button class="btn-primary" id="comment-from-blog">
+                        <i class="fas fa-comment"></i> Add Comment
+                    </button>
+                    <button class="btn-secondary" id="share-blog">
+                        <i class="fas fa-share-alt"></i> Share Article
+                    </button>
+                    <button class="btn-secondary" id="save-blog">
+                        <i class="fas fa-bookmark"></i> Save for Later
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle toast-icon"></i>
+            <span class="toast-message">Operation completed successfully!</span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="blog-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
